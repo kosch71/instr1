@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Main.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Main.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java.util.Scanner</span><span class="s0">;</span>
+
+public class <span class="s1">Main {</span>
+
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+        Scanner scan = <span class="s0">new </span><span class="s1">Scanner(System.in)</span><span class="s0">;</span>
+
+
+        <span class="s1">Fraction fraction1 = </span><span class="s0">new </span><span class="s1">Fraction(scan.nextInt()</span><span class="s0">, </span><span class="s1">scan.nextInt())</span><span class="s0">;</span>
+        <span class="s1">Fraction fraction2 = </span><span class="s0">new </span><span class="s1">Fraction(scan.nextInt()</span><span class="s0">, </span><span class="s1">scan.nextInt())</span><span class="s0">;</span>
+        <span class="s1">Fraction fraction3 = </span><span class="s0">new </span><span class="s1">Fraction(scan.nextInt()</span><span class="s0">, </span><span class="s1">scan.nextInt())</span><span class="s0">;</span>
+        <span class="s1">Fraction fraction4 = </span><span class="s0">new </span><span class="s1">Fraction(scan.nextInt()</span><span class="s0">, </span><span class="s1">scan.nextInt())</span><span class="s0">;</span>
+
+        <span class="s1">FractionSet frac = </span><span class="s0">new </span><span class="s1">FractionSet()</span><span class="s0">;</span>
+        <span class="s1">FractionSet frac_ = </span><span class="s0">new </span><span class="s1">FractionSet()</span><span class="s0">;</span>
+
+        <span class="s1">frac.add(fraction1)</span><span class="s0">;</span>
+        <span class="s1">frac_.add(fraction2)</span><span class="s0">;</span>
+
+        <span class="s1">frac.add(fraction3)</span><span class="s0">;</span>
+        <span class="s1">frac_.add(fraction4)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(frac.getAllFracs())</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(frac.getMax())</span><span class="s0">;</span>
+        <span class="s1">System.out.println(frac.getMin())</span><span class="s0">;</span>
+        <span class="s1">System.out.println(frac.getMoreThan(fraction2))</span><span class="s0">;</span>
+        <span class="s1">System.out.println(frac.getLessThan(fraction1))</span><span class="s0">;</span>
+
+        <span class="s1">Polynom polynom = </span><span class="s0">new </span><span class="s1">Polynom()</span><span class="s0">;</span>
+        <span class="s1">Polynom polynom__ = </span><span class="s0">new </span><span class="s1">Polynom()</span><span class="s0">;</span>
+
+        <span class="s1">polynom.addFraction(fraction1)</span><span class="s0">;</span>
+        <span class="s1">polynom.addFraction(fraction2)</span><span class="s0">;</span>
+        <span class="s1">polynom__.addFraction(fraction3)</span><span class="s0">;</span>
+        <span class="s1">polynom__.addFraction(fraction4)</span><span class="s0">;</span>
+        <span class="s1">polynom.print()</span><span class="s0">;</span>
+        <span class="s1">polynom__.print()</span><span class="s0">;</span>
+        <span class="s1">polynom.sum(polynom__)</span><span class="s0">;</span>
+        <span class="s1">polynom__.print()</span><span class="s0">;</span>
+        <span class="s1">System.out.println(polynom)</span><span class="s0">;</span>
+        <span class="s1">Calculus calculus = </span><span class="s0">new </span><span class="s1">Calculus(polynom)</span><span class="s0">;</span>
+        <span class="s1">calculus.printCalc()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+}
+</pre>
+</body>
+</html>

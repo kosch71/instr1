@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>Polynom.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #629755; font-style: italic;}
+.s3 { color: #629755; font-weight: bold; font-style: italic;}
+.s4 { color: #6897bb;}
+.s5 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Polynom.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java.util.Iterator</span><span class="s0">;</span>
+
+public class <span class="s1">Polynom </span><span class="s0">extends </span><span class="s1">FractionSet {</span>
+    <span class="s2">/**</span>
+     * constructor
+     */
+    <span class="s0">public </span><span class="s1">Polynom() {</span>
+        <span class="s0">super</span><span class="s1">()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s2">/**</span>
+     * add Fraction to Polynom
+     * <span class="s3">@param </span><span class="s2">x</span>
+     */
+    <span class="s0">void </span><span class="s1">addFraction(Fraction x) {</span>
+        <span class="s0">this</span><span class="s1">.add(x)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s2">/**</span>
+     * print Polynom
+     */
+    <span class="s0">void </span><span class="s1">print() {</span>
+        <span class="s0">int </span><span class="s1">count = </span><span class="s4">0</span><span class="s0">;</span>
+        for <span class="s1">(Fraction i : </span><span class="s0">this</span><span class="s1">) {</span>
+            System.out.print(i.toString() + <span class="s5">&quot;*X^&quot; </span><span class="s1">+ count + </span><span class="s5">&quot; &quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">count++</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    }
+
+    <span class="s2">/**</span>
+     * *?
+     * <span class="s3">@param </span><span class="s2">other</span>
+     * <span class="s3">@return </span><span class="s2">poly</span>
+     */
+    <span class="s0">public </span><span class="s1">Polynom sum(Polynom other) {</span>
+        Polynom poly = <span class="s0">new </span><span class="s1">Polynom()</span><span class="s0">;</span>
+        <span class="s1">Iterator&lt;Fraction&gt; it = </span><span class="s0">this</span><span class="s1">.iterator()</span><span class="s0">;</span>
+        <span class="s1">Iterator&lt;Fraction&gt; it_ = other.iterator()</span><span class="s0">;</span>
+        if <span class="s1">(it.hasNext()) {</span>
+            <span class="s0">if </span><span class="s1">(it_.hasNext()) {</span>
+                Fraction f__ = it.next()<span class="s0">;</span>
+                <span class="s1">poly.addFraction(f__.plus(it_.next()))</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        }
+        <span class="s0">return </span><span class="s1">poly</span><span class="s0">;</span>
+    <span class="s1">}</span>
+}</pre>
+</body>
+</html>

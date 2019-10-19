@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>FractionSet.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #629755; font-style: italic;}
+.s3 { color: #629755; font-weight: bold; font-style: italic;}
+.s4 { color: #6a8759;}
+.s5 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+FractionSet.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java.io.OutputStream</span><span class="s0">;</span>
+import <span class="s1">java.io.PrintWriter</span><span class="s0">;</span>
+import <span class="s1">java.util.ArrayList</span><span class="s0">;</span>
+import <span class="s1">java.util.Collections</span><span class="s0">;</span>
+import <span class="s1">java.util.Comparator</span><span class="s0">;</span>
+import <span class="s1">java.util.List</span><span class="s0">;</span>
+
+public class <span class="s1">FractionSet </span><span class="s0">extends </span><span class="s1">ArrayList&lt;Fraction&gt; {</span>
+
+    <span class="s2">/**</span>
+     * constructor
+     */
+    <span class="s0">public </span><span class="s1">FractionSet() {</span>
+    }
+
+    <span class="s2">/**</span>
+     * print Fractions
+     * <span class="s3">@param </span><span class="s2">out</span>
+     */
+    <span class="s0">void </span><span class="s1">print(OutputStream out) {</span>
+        PrintWriter pw = <span class="s0">new </span><span class="s1">PrintWriter(out)</span><span class="s0">;</span>
+        for <span class="s1">(Fraction i : </span><span class="s0">this</span><span class="s1">) {</span>
+            pw.print(i.toString() + <span class="s4">&quot; &quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        pw.println()<span class="s0">;</span>
+        <span class="s1">pw.close()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+
+    <span class="s2">/**</span>
+     * get Max Fraction
+     * <span class="s3">@return </span><span class="s2">other</span>
+     */
+    <span class="s1">Fraction getMax() {</span>
+        Fraction other = Collections.max(<span class="s0">this, </span><span class="s1">Comparator.comparingDouble(Fraction::getMean))</span><span class="s0">;</span>
+        return <span class="s1">other</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s2">/**</span>
+     * get Min Fraction
+     * <span class="s3">@return </span><span class="s2">other</span>
+     */
+    <span class="s1">Fraction getMin() {</span>
+        Fraction other = Collections.min(<span class="s0">this, </span><span class="s1">Comparator.comparingDouble(Fraction::getMean))</span><span class="s0">;</span>
+        return <span class="s1">other</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s2">/**</span>
+     * count Fraction more than Fraction1
+     * <span class="s3">@param </span><span class="s2">other</span>
+     * <span class="s3">@return </span><span class="s2">count</span>
+     */
+    <span class="s1">Integer getMoreThan(Fraction other) {</span>
+        <span class="s0">int </span><span class="s1">count = </span><span class="s5">0</span><span class="s0">;</span>
+        for <span class="s1">(Fraction i : </span><span class="s0">this</span><span class="s1">) {</span>
+            <span class="s0">if </span><span class="s1">(i.compare(other) &gt; </span><span class="s5">0</span><span class="s1">) count++</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">count</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s2">/**</span>
+     * count Fraction less than Fraction1
+     * <span class="s3">@param </span><span class="s2">other</span>
+     * <span class="s3">@return </span><span class="s2">count</span>
+     */
+    <span class="s1">Integer getLessThan(Fraction other) {</span>
+        <span class="s0">int </span><span class="s1">count = </span><span class="s5">0</span><span class="s0">;</span>
+        for <span class="s1">(Fraction i : </span><span class="s0">this</span><span class="s1">) {</span>
+            <span class="s0">if </span><span class="s1">(i.compare(other) &lt; </span><span class="s5">0</span><span class="s1">) count++</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">count</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s2">/**</span>
+     * get All fractions
+     * <span class="s3">@return </span><span class="s2">listOfFRactions</span>
+     */
+    <span class="s1">List&lt;Fraction&gt; getAllFracs(){</span>
+        <span class="s0">return new </span><span class="s1">ArrayList&lt;&gt;(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+}
+</pre>
+</body>
+</html>
